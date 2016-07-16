@@ -1,3 +1,9 @@
+/[lL]ibrary/
+/[tT]emp/
+/[oO]bj/
+/[bB]uilds/
+/Assets/AssetStoreTools*
+
 Temp
 *.pidb
 *.unityproj
@@ -5,3 +11,9 @@ Temp
 *.userprefs
 *.exe
 *.scproj
+*.user
+
+*.pidb.meta
+sysinfo.txt
+
+*.unitypackage
