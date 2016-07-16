@@ -10,7 +10,7 @@ Temp
 *.sln
 *.userprefs
 *.exe
-*.scproj
+*.csproj
 *.user
 
 *.pidb.meta
