@@ -1,2 +1,25 @@
+<<<<<<< HEAD
 *
 !*.cs
+=======
+/[lL]ibrary/
+/[tT]emp/
+/[oO]bj/
+/[bB]uilds/
+/Assets/AssetStoreTools*
+
+Temp
+*.pidb
+*.unityproj
+*.sln
+*.userprefs
+*.exe
+*.csproj
+*.user
+*.svd
+
+*.pidb.meta
+sysinfo.txt
+
+*.unitypackage
+>>>>>>> a8998b000faf411dd93fb8b9c9aaeaf2d9adc1ad
