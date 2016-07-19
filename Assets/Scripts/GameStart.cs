@@ -21,25 +21,23 @@ public class GameStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        float margine = Vector3.Distance(ContTrans.position,transform.position);
-        
-        if(margine < 0.2)
-        {
-            // ここでゲーム開始
-            uim.SceneChangeListener = 1;
-            ContTrans.FindChild("虫網").gameObject.SetActive(true);
-            Destroy(gameObject, 0.5f);
-            Doragonflies.Flag = true;
-            for(int i=0; i<15; i++)
-            {
-                GenerateEnemy();
-            }        
-        }
     }
 
     void GenerateEnemy()
     {
         Instantiate(katonbo);
+    }
+
+    void OnTriggerEnter(Collider obj)
+    {
+        // ここでゲーム開始
+        uim.SceneChangeListener = 1;
+        ContTrans.FindChild("虫網").gameObject.SetActive(true);
+        Destroy(gameObject);
+        Doragonflies.Flag = true;
+        for (int i = 0; i < 20; i++)
+        {
+            GenerateEnemy();
+        }
     }
 }

@@ -11,6 +11,7 @@ public class ReStarter : MonoBehaviour {
     Vector2 lastPoint;
     Vector2 point;
     int lastScore, score;
+    int distance;
 	// Use this for initialization
 	void Start () {
         uim = UIManager.getInstance;
@@ -18,6 +19,7 @@ public class ReStarter : MonoBehaviour {
         device = SteamVR_Controller.Input((int)controller.index);
         cont = GameObject.Find("[CameraRig]").transform.FindChild("Controller (right)").FindChild("虫網");
         point = lastPoint = Vector2.zero;
+        distance = 0;
 	}
 	
 	// Update is called once per frame
@@ -36,11 +38,19 @@ public class ReStarter : MonoBehaviour {
             {
                 if (device.GetAxis().y > 0.3)
                 {
-                    cont.Translate(3.0f, 0.0f, 0.0f, Space.Self);
+                    if (distance < 10)
+                    {
+                        cont.Translate(-0.1f, 0.0f, 0.0f, Space.Self);
+                        distance++;
+                    }
                 }
                 else if (device.GetAxis().y < -0.3)
                 {
-                    cont.Translate(-3.0f, 0.0f, 0.0f, Space.Self);
+                    if (distance > -14)
+                    {
+                        cont.Translate(0.1f, 0.0f, 0.0f, Space.Self);
+                        distance--;
+                    }
                 }
             }
 

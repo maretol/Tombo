@@ -30,9 +30,9 @@ public class Doragonflies : MonoBehaviour
         player = GameObject.Find("[CameraRig]").transform.FindChild("Camera (head)").position;
         if (!gameObject.ToString().Equals("Tombo"))
         {
-            Vector3 point = UnityEngine.Random.insideUnitSphere*15.0f;
-            point.y = Math.Abs(point.y) * 0.85f;
-            point.y = point.y - 4.2f;
+            Vector3 point = UnityEngine.Random.insideUnitSphere*12.0f;
+            point.y = Math.Abs(point.y) * 0.7f;
+            point.y = point.y - 1.5f;
             transform.Translate(point, Space.World);
             transform.Rotate(0.0f, 0.0f ,360.0f * UnityEngine.Random.value, Space.Self);
             GetComponent<MeshRenderer>().enabled = true;
@@ -45,7 +45,6 @@ public class Doragonflies : MonoBehaviour
         idou = true;
         gameObject.SetActive(true);
         
-        // 自分の位置を決定
     }
 
     // Update is called once per frame
@@ -90,11 +89,12 @@ public class Doragonflies : MonoBehaviour
             span = UnityEngine.Random.value * 5.0f; // 移動時間
 
             float angle = 0.0f;
-            if (split > 7)
+            if (split > 5)
             {
                 // 離れすぎてるので近づくように
                 Vector3 forMe = player - transform.position;
-                angle = Vector3.Angle(transform.forward, forMe) * UnityEngine.Random.value;
+                forMe = forMe / 2.0f;
+                angle = Vector3.Angle(transform.forward,forMe) + Vector3.Angle(transform.forward, forMe) * UnityEngine.Random.value;
             }
             else if (split < 1)
             {

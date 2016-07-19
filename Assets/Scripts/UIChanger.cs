@@ -41,7 +41,7 @@ public class UIChanger : MonoBehaviour {
             case 2:
                 // リザルト画面
                 local.fontSize = 16;
-                local.text = "スコア : " + uim.Catcher + " 匹";
+                local.text = "スコア : " + uim.Catcher + " 匹\n";
                 local.text += "トリガーを引いてもう一度！";
                 first = true;
                 break;
